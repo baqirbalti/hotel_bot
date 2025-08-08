@@ -25,7 +25,7 @@ A smart AI-powered hotel assistant built using **FastAPI**, **LangChain**, and *
 
 ## 📁 Folder Structure
 
-'''
+```
 hotel-chatbot/
 │
 ├── app/
@@ -45,7 +45,7 @@ hotel-chatbot/
 ├── requirements.txt # Python dependencies
 └── README.md # You're reading it!
 
-'''
+```
 ---
 
 ## 🧠 Tech Stack
