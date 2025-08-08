@@ -1,13 +1,13 @@
 # 🏨 Stay O'clock Hotel Chatbot
 
-A smart AI-powered hotel assistant built using **FastAPI**, **LangChain**, and **Mistral LLM**. This chatbot helps users inquire about room availability, services, hotel policies, and more — via **WhatsApp** or web-based UI. It handles predefined questions with instant replies and routes unknown queries for manual handling.
+A smart AI-powered hotel assistant built using **FastAPI**, **LangChain**, and **llama3-8b-8192**. This chatbot helps users inquire about room availability, services, hotel policies, and more — via **WhatsApp** or web-based UI. It handles predefined questions with instant replies and routes unknown queries for manual handling.
 
 ---
 
 ## 🌐 Live Use Case
 **Hotel Name:** Stay O'clock Hotel and Restaurant  
 **Location:** Skardu (Clifton Pul near Abdullah Hospital)  
-**Email:** baqirbalti777@gmail.com
+**Email:** stayoclockhotel@gmail.com
 
 ---
 
@@ -17,7 +17,7 @@ A smart AI-powered hotel assistant built using **FastAPI**, **LangChain**, and *
 - 📦 **Room availability check** with dynamic/manual updates
 - 🧠 **LLM-based understanding** of customer questions
 - 💬 **WhatsApp-compatible responses** (or extend to Instagram)
-- ⛓️ Powered by **LangChain** and **Mistral-7B-Instruct**
+- ⛓️ Powered by **LangChain** and **llama3-8b-8192**
 - 🗃️ Static and dynamic hotel data support
 - ⚙️ Easily extendable and production-ready structure
 
@@ -26,32 +26,27 @@ A smart AI-powered hotel assistant built using **FastAPI**, **LangChain**, and *
 ## 📁 Folder Structure
 
 ```
-hotel-chatbot/
+hotel_bot/
 │
 ├── app/
-│ ├── main.py # FastAPI entrypoint
-│ ├── models/ # Data models (Room, Booking)
-│ ├── database/ # SQLite DB setup (or mock for static)
-│ ├── rag/ # RAG logic using LangChain
-│ └── utils/ # Helper functions
+│ ├── build_vector_db.py # Script to build FAISS vector DB from hotel info
+│ ├── embedder.py # (Optional) Alternate vector builder
+│ ├── main.py # FastAPI backend with web UI
+│ ├── rag.py # Core RAG logic using LangChain + Groq LLM
+│ ├── static_data.txt # Static hotel information (used for embeddings)
+│ ├── vectordb.pkl/ # FAISS vector index (generated after running vector builder)
 │
-├── data/
-│ └── hotel_info.txt # Static hotel info for embedding
-│
-├── vectordb/
-│ └── vectordb.pkl # Vector DB with embeddings
-│
-├── .env # Environment variables (e.g., Groq API key)
-├── requirements.txt # Python dependencies
-└── README.md # You're reading it!
-
+├── .env # Contains your OPENROUTER_API_KEY (used for Groq)
+├── requirements.txt # Project dependencies
+├── README.md # Project documentation (you’re reading it!)
+└── venv/ # Virtual environment (optional)
 ```
 ---
 
 ## 🧠 Tech Stack
 
 - **Backend:** FastAPI
-- **LLM:** Mistral 7B via HuggingFace or Groq API
+- **LLM:** llama3-8b-8192 via HuggingFace or Groq API
 - **Embedding:** Hugging Face Transformers
 - **RAG Engine:** LangChain
 - **Database:** SQLite (or static file-based for now)
